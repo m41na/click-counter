@@ -1,0 +1,14 @@
+.App {
+    display: flex;
+    flex-direction: row;
+}
+
+.App .section button {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.App .section .value {
+    color: red;
+    font-size: 1.2em;
+}

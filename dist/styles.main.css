@@ -1,0 +1,25 @@
+.App {
+  display: flex;
+  flex-direction: row;
+}
+.App .section button {
+  padding: 10px;
+  font-weight: bold;
+}
+.App .section .value {
+  color: red;
+  font-size: 1.2em;
+}
+
+.pretty-json {
+  width: 600px;
+  height: 400px;
+}
+.pretty-json textarea {
+  width: 100%;
+  min-height: 30rem;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
