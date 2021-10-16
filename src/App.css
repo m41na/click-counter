@@ -1,14 +1,16 @@
 .App {
-    display: flex;
-    flex-direction: row;
+  text-align: center;
 }
 
-.App .section button {
-    padding: 10px;
-    font-weight: bold;
+.App button {
+  display: inline-block;
+  border: 2px solid #333;
+  padding: 20px;
 }
 
-.App .section .value {
-    color: red;
-    font-size: 1.2em;
+.App .counter {
+  display: inline-block;
+  font-size: 2em;
+  font-weight: bold;
+  min-width: 100px;
 }

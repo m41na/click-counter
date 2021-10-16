@@ -1,19 +1,13 @@
-import React from 'react';
+import { useState } from 'react';
 import './App.css';
-import AwayView from './containers/AwayView';
-import NearView from './containers/NearView';
-import Proximity from './containers/Proximity';
-import ListFiles from './components/ListFiles';
 
-export default () => {
-
+function App() {
+  const [state, setState] = useState(10);
   return (
     <div className="App">
-      <NearView />
-      <Proximity />
-      <AwayView />
-      <br/>
-      <ListFiles/>
+      <button onClick={() => setState(state + 1)}>+</button><span className="counter">{state }</span><button onClick={() => setState(state - 1)}>-</button>
     </div>
   );
-};
+}
+
+export default App;
