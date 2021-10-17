@@ -15,6 +15,6 @@ node {
     }
 
     stage('finish'){
-        sh 'node build completed successfully'
+        sh "echo 'node build completed successfully'"
     }
 }
