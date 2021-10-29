@@ -1,13 +1,336 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  padding: 0px;
+  margin: 0px;
+  /* border: none; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.centered {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.centered button:hover,
+.centered input[type=button]:hover,
+.centered input[type=submit]:hover {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/** Question Box */
+.centered .que-box {
+  grid-column: 1/4;
+  display: flex;
+  height: 160px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.centered .que-box textarea {
+  flex: 1;
+  padding: 10px;
+  font-size:  2em;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.5em;
+  outline: none;
+}
+
+/** SubmitBox **/
+.centered .publish-box {
+  grid-column: 1/4;
+  display: flex;
+}
+
+.centered .publish-box.hidden {
+  display: none;
+}
+
+.centered .publish-box a{
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 6em;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.centered .publish-box a.send{
+  background-color: #96ab96;
+}
+
+.centered .publish-box a.reset{
+  background-color: #cf5a4a;
+}
+
+.centered .submit-box {
+  grid-column: 1/4;
+  display: flex;
+  height: 160px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.centered .submit-box textarea {
+  flex-grow: 3;
+  padding: 10px;
+  font-size:  2em;
+  border: none;
+  border-radius: 10px;
+}
+
+.centered .submit-box button {
+  display: inline-block;
+  padding: 15px;
+  font-size:  2em;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/** JoinBox **/
+.centered .join-box {
+  grid-column: 1/4;
+  display: flex;
+  height: 50px;
+  min-width: 600px;
+}
+
+.centered .join-box span{
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  position: absolute;
+  height: 48px;
+  width: 50px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.centered .join-box span.open{
+  background-color: #cf5a4a;
+  color: #fff;
+}
+
+.centered .join-box span.close{
+  background-color: #EFEFEF;
+}
+
+.centered .join-box input[type=text]{
+  flex-grow: 6;
+  margin-left: 25px;
+  border: 1px solid #ccc;
+  border-left: none;
+  padding-left: 40px;
+  font-size: 1.2em;
+}
+
+.centered .join-box input[type=text]:focus{
+  outline: none;
+}
+
+.centered .join-box input[type=button]{
+  flex-grow: 1;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.centered .join-box .form-error {
+  position: absolute;
+  margin-top: 50px;
+  color: #cf5a4a;
+  margin-left: 25px;
+}
+
+/** Participant **/
+.centered .participant-box {
+  grid-column: 1/4;
+  display: flex;
+  height: 50px;
+  min-width: 600px;
+}
+
+.centered .participant-box span{
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  height: 48px;
+  width: 50px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  z-index: 1;
+  color: #fff;
+  background-color: #cf5a4a;
+}
+
+.centered .participant-box input[type=text]{
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  font-size: 1.2em;
+}
+
+.centered .participant-box input.scrum_player{
+  flex-grow: 1;
+  border-right: none;
+  margin-right: -25px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #EFEFEF;
+}
+
+.centered .participant-box input.scrum_id{
+  flex-grow: 2;
+  border-left: none;
+  margin-left: -25px;
+  padding-left: 35px;
+}
+
+.centered .participant-box input[type=text]:focus{
+  outline: none;
+}
+
+.centered .participant-box input[type=button]{
+  flex-grow: 1;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.centered .participant-box .form-error {
+  position: absolute;
+  margin-top: 50px;
+  color: #cf5a4a;
+  margin-left: 25px;
+}
+
+/** Organizer **/
+.centered .organizer-box {
+  grid-column: 1/4;
+  display: flex;
+  height: 50px;
+  min-width: 600px;
+}
+
+.centered .organizer-box span{
+  flex-grow: 5;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold; 
+}
+
+.centered .organizer-box button[type=button]{
+  flex-grow: 1;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.centered .organizer-box button.btn-close{
+  color: #fff;
+  background-color: #cf5a4a;
+}
+
+/** StartBox **/
+.centered .start-box {
+  grid-column: 1/4;
+  display: flex;
+  height: 50px;
+  min-width: 600px;
+}
+
+.centered .start-box button {
+  flex-grow: 1;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+}
+
+.centered .start-box button.btn-left{
+  border-right: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #cf5a4a;
+  color: #fff;
+}
+
+.centered .start-box button.btn-right{
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #EFEFEF;
+  color: #333;
+}
+
+/** Card **/
+.card {
+  min-width: 200px;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.card input.content.value {
+  width: 200px;
+  border: none;
+  line-height: 1.8em;
+  font-size: 7em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.card span.content.name {
+  max-width: 200px;
+  border: none;
+  line-height: 200px;
+  font-size: 4vw;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.card i.caption {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.card span.content.value {
+  max-width: 200px;
+  border: none;
+  line-height: 150px;
+  font-size: 7em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 15px;
 }

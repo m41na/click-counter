@@ -6,17 +6,32 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "socket.io": "^4.3.1",
+    "socket.io-client": "^4.3.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test:watch": "react-scripts test",
-    "test": "react-scripts test --watchAll=false",
-    "eject": "react-scripts eject"
+    "react:start": "react-scripts start",
+    "react:build": "react-scripts build",
+    "react:test": "react-scripts test",
+    "react:eject": "react-scripts eject",
+    "test:react": "react-scripts test -u",
+    "test:server": "jest --config=jest.config.js",
+    "start:server": "set PORT=5000 && node server",
+    "start:dev": "concurrently \"npm run react:start\" \"npm run start:server\"",
+    "test": "npm run test:server -- --coverage && npm run test:react -- --coverage --watchAll=false",
+    "start": "npm run react:build && npm run start:server",
+    "lint:fix": "npx eslint --fix src server",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +50,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.26.1",
+    "husky": "^7.0.0",
+    "nodemon": "^2.0.13"
   }
 }
