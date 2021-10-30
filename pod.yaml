@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: click-counter-pod
+  labels:
+    app: click-counter-pod
+spec:
+  containers:
+  - image: click-counter:latest
+    imagePullPolicy: Always
+    name: click-counter
+    resources: 
+      limits:
+      - 
