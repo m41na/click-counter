@@ -1,0 +1,21 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .organizer {
+      background-color: aliceblue;
+  }
+
+  .participant {
+      background-color:beige
+  }
+  
