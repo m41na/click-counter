@@ -1,34 +1,12 @@
-const express = require("express");
-const timeout = require("connect-timeout");
-const path = require("path");
-const cors = require("cors");
-const http = require("http");
-const morgan = require("morgan");
-const router = require("./routes");
+const socketOrigin = process.env.SOCKET_ORIGIN || "http://localhost:3000"; // default origin
 
-const app = express();
-
-const port = process.env.PORT || 5000; // default port is 5000
-const timeOut = process.env.TIME_OUT || 120000;
-
-// initialize application
-app.use(cors());
-app.use(morgan("tiny"));
-app.use(express.json());
-app.use(timeout(timeOut));
-app.use(router);
-app.use(express.static(path.join(__dirname, "../build")));
-
-const server = http.createServer(app);
-server.listen(port, () => {
-  console.log(`Express is listening on port ${port}.`);
-
+module.exports = function (server) {
   // initialize web socket
   const socketio = require("socket.io");
   const io = socketio(server, {
     path: "/play",
     cors: {
-      origin: ["http://localhost:3000"]
+      origin: [socketOrigin]
     }
   });
 
@@ -70,4 +48,4 @@ server.listen(port, () => {
       console.log(`socket id ${socket.id} left the scrum`);
     });
   });
-});
+};
